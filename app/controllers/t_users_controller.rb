@@ -41,7 +41,7 @@ class TUsersController < ApplicationController
 
   private
   def set_user
-    @user = TUser.find(id: user_id)
+    @user = TUser.find(params[:f_user_id])
   end
 
   def user_params
