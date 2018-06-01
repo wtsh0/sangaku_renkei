@@ -1,2 +1,56 @@
 <h1>TUsers#index</h1>
 <p>Find me in app/views/t_users/index.html.erb</p>
+
+<p>ユーザー一覧</p>
+<% unless @users.blank? %>
+  <!--ユーザーが存在する場合-->
+  <table>
+    <tr>
+      <th>No</th>
+      <th>名前</th>
+      <th>生年月日</th>
+      <th>メールアドレス</th>
+      <th>国</th>
+      <th>言語</th>
+      <th>性別</th>
+      <th>自治体公認</th>
+      <th>一言コメント</th>
+      <th>登録日</th>
+      <th>更新日</th>
+      <th>修正</th>
+    </tr>
+    <%= @users.each do |user|%>
+      <tr>
+        <!--No-->
+        <td><%= user.f_user_id %></td>
+        <!--名前-->
+        <td><%= user.f_lastname %> <%= user.f_firstname %></td>
+        <!--生年月日-->
+        <td><%= user.f_birthday %></td>
+        <!--メールアドレス-->
+        <td><%= user.f_mail %></td>
+        <!--国-->
+        <td><%= user.f_country_id %></td>
+        <!--言語-->
+        <td><%= user.f_language_id %></td>
+        <!--ログイン種別-->
+        <td><%= user.f_login_flg %></td>
+        <!--性別-->
+        <td><%= user.f_sex %></td>
+        <!--自治体公認フラグ-->
+        <td><%= user.f_auth_flg %></td>
+        <!--一言コメント-->
+        <td><%= user.f_comment %></td>
+        <!--登録日時-->
+        <td><%= user.f_reg_date %></td>
+        <!--更新日時-->
+        <td><%= user.f_upd_date %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <!--ユーザーが存在しない場合-->
+  <p>まだユーザーは存在しません</p>
+<% end %>
+
+<%= link_to  "ユーザーの新規登録", new_t_user_path %>

@@ -1,2 +1,41 @@
 <h1>TUsers#show</h1>
 <p>Find me in app/views/t_users/show.html.erb</p>
+
+  <!--名-->
+  <label>名前(lastname)</label><br>
+  <%= @user.f_lastname %>
+  <!--姓-->
+  <label>苗字(firstname)</label><br>
+  <%= @user.f_firstname %>
+  
+  <!--生年月日-->
+  <label>生年月日</label><br>
+  <%= @user.f_birthday %>
+  <!--メールアドレス-->
+  <label>メールアドレス</label><br>
+  <%= @user.f_mail %>
+
+  <!--国-->
+  <label>出身国</label><br>
+  <%= @user.f_country_id %>
+
+  <!--言語-->
+  <label>言語</label><br>
+  <%= @user.f_language_id %>
+
+  <!--ログイン種別-->
+  <label>ログイン種別</label><br>
+  <%= @user.f_login_flg %>
+
+  <!--性別-->
+  <label>性別</label><br>
+  <%= @user.f_sex %>
+
+  <!--公認フラグ-->
+  <label>公認フラグ</label><br>
+  <%= @user.f_auth_flg %>
+
+  <!--一言コメント-->
+  <label>一言コメント</label><br>
+  <%= @user.f_comment %>
+  
