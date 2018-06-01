@@ -1,5 +1,5 @@
 class TUsersController < ApplicationController
-  before_action :set_user, only: [:show, :create, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def index
     @users = TUser.all.reverse_order
@@ -13,12 +13,11 @@ class TUsersController < ApplicationController
   end
 
   def create
-    @user = TUser.create(user_params)
-
+    @user = TUser.new(user_params)
     if @user.save
-      redirect_to new_t_user_path, success: "#{@user.f_lastname + @user.f_firstname}様の登録が完了しました"
+      redirect_to t_user_path(@user), success: "#{@user.f_lastname + " " + @user.f_firstname}様の登録が完了しました"
     else
-      render 'new'
+      render 'new', error: "エラーが発生しています"
     end
   end
 
@@ -45,6 +44,6 @@ class TUsersController < ApplicationController
   end
 
   def user_params
-    params.require(:t_user).permit(:f_user_id, :f_lastname, :f_firstname, :f_birthday, :f_mail, :f_country_id, :f_login_flg, :f_sex, :f_comment)
+    params.require(:t_user).permit(:f_user_id, :f_lastname, :f_firstname, :f_birthday, :f_mail, :f_country_id, :f_language_id, :f_login_flg, :f_sex, :f_comment, :f_auth_flg)
   end
 end

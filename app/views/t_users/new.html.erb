@@ -26,7 +26,7 @@
   <!--国-->
   <%= f.label :'出身国' %><br>
   <%# f.collection_select  :f_country_id, TCountry.all, :id, :name %>
-  <%= f.number_field :f_language_id %><br>  
+  <%= f.number_field :f_country_id %><br>
   <!--言語-->
   <%= f.label :'言語' %><br>
   <%# f.collection_select  :f_language_id, TLanguage.all, :id, :name %>
@@ -43,7 +43,7 @@
   <!--一言コメント-->
   <%= f.label :'一言コメント' %><br>
   <%= f.text_area :f_comment %><br>
-  
-  <%= f.submit '登録する' %><br>
+
+  <%= f.submit %><br>
 
 <% end %>
