@@ -1,3 +1,12 @@
 class TUser < ActiveRecord::Base
-  self.primary_key = :f_user_id
+  # validation
+  validates :f_lastname, presence: true
+  validates :f_firstname, presence: true
+  validates :f_birthday, presence: true
+  validates :f_mail, presence: true
+  validates :f_country_id, presence: true
+  validates :f_language_id, presence: true
+  validates :f_login_flg, presence: true
+  validates :f_sex, presence: true
+  validates :f_auth_flg, presence: true
 end
