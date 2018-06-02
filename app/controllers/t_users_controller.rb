@@ -6,6 +6,7 @@ class TUsersController < ApplicationController
   end
 
   def show
+    @codes = TRegCode.where(f_user_id: @user.f_user_id)
   end
 
   def new
@@ -15,7 +16,7 @@ class TUsersController < ApplicationController
   def create
     @user = TUser.new(user_params)
     if @user.save
-      redirect_to t_user_path(@user), success: "#{@user.f_lastname + " " + @user.f_firstname}様の登録が完了しました"
+      redirect_to t_user_path(@user), success: "#{@user.f_lastname + " " + @user.f_firstname} 様の登録が完了しました"
     else
       render 'new', error: "エラーが発生しています"
     end
@@ -40,7 +41,7 @@ class TUsersController < ApplicationController
 
   private
   def set_user
-    @user = TUser.find(params[:f_user_id])
+    @user = TUser.find(params[:id])
   end
 
   def user_params

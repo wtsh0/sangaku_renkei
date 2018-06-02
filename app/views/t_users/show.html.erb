@@ -1,41 +1,68 @@
 <h1>TUsers#show</h1>
 <p>Find me in app/views/t_users/show.html.erb</p>
-
   <!--名-->
   <label>名前(lastname)</label><br>
-  <%= @user.f_lastname %>
+  <%= @user.f_lastname %><br>
   <!--姓-->
   <label>苗字(firstname)</label><br>
-  <%= @user.f_firstname %>
-  
+  <%= @user.f_firstname %><br>
+
   <!--生年月日-->
   <label>生年月日</label><br>
-  <%= @user.f_birthday %>
+  <%= @user.f_birthday %><br>
   <!--メールアドレス-->
   <label>メールアドレス</label><br>
-  <%= @user.f_mail %>
+  <%= @user.f_mail %><br>
 
   <!--国-->
   <label>出身国</label><br>
-  <%= @user.f_country_id %>
+  <%= @user.f_country_id %><br>
 
   <!--言語-->
   <label>言語</label><br>
-  <%= @user.f_language_id %>
+  <%= @user.f_language_id %><br>
 
   <!--ログイン種別-->
   <label>ログイン種別</label><br>
-  <%= @user.f_login_flg %>
+  <%= @user.f_login_flg %><br>
 
   <!--性別-->
   <label>性別</label><br>
-  <%= @user.f_sex %>
+  <%= @user.f_sex %><br>
 
   <!--公認フラグ-->
   <label>公認フラグ</label><br>
-  <%= @user.f_auth_flg %>
+  <%= @user.f_auth_flg %><br>
 
   <!--一言コメント-->
   <label>一言コメント</label><br>
-  <%= @user.f_comment %>
-  
+  <%= @user.f_comment %><br>
+
+  <label>QRコード</label>
+  <% unless @codes.blank? %>
+    <% @codes.each do |code| %>
+    <%= image_tag qrcode_tag(code.f_code) %>
+    <% end %>
+  <% else %>
+    <p>まだ発行されていません</p>
+  <% end %>
+
+  <p><%= link_to '情報の修正', edit_t_user_path(@user.id) %></p>
+
+<% @uuid = SecureRandom.uuid %>
+<% @now = Time.current %>
+
+<%= form_tag(t_reg_codes_path) do |f| %>
+  <!-- コード -->
+  <%= hidden_field_tag :f_code, @uuid %>
+  <!-- ユーザーID -->
+  <%= hidden_field_tag :f_user_id, @user.f_user_id %>
+  <!-- 発行日時 -->
+  <%= hidden_field_tag :f_val_date, @now %>
+  <!-- 失効日時 -->
+  <%= hidden_field_tag :f_inval_date, @now.since(7.days) %>
+  <%= submit_tag 'QRコードを発行' %>
+<% end %>
+
+
+

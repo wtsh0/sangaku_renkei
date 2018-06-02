@@ -9,4 +9,7 @@ class TUser < ActiveRecord::Base
   validates :f_login_flg, presence: true
   validates :f_sex, presence: true
   validates :f_auth_flg, presence: true
+
+  #relation
+  has_many :t_reg_codes
 end

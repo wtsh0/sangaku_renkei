@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601104303) do
+ActiveRecord::Schema.define(version: 20180601145438) do
+
+  create_table "t_reg_codes", primary_key: "f_code_id", force: :cascade do |t|
+    t.string   "f_code",       limit: 255
+    t.integer  "f_user_id",    limit: 4
+    t.datetime "f_val_date"
+    t.datetime "f_inval_date"
+    t.datetime "f_reg_date",               null: false
+    t.datetime "f_upd_date",               null: false
+  end
 
   create_table "t_users", primary_key: "f_user_id", force: :cascade do |t|
     t.string   "f_lastname",    limit: 255

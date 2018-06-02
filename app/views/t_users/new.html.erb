@@ -1,49 +1,8 @@
 <h1>TUsers#new</h1>
 <p>Find me in app/views/t_users/new.html.erb</p>
 
-<%= form_for(@user) do |f| %>
-  <!--名-->
-  <%= f.label :'名前(lastname)' %><br>
-  <%= f.text_field :f_lastname %><br>
-  <!--姓-->
-  <%= f.label :'苗字(firstname)' %><br>
-  <%= f.text_field :f_firstname %><br>
-  <!--生年月日-->
-  <%= f.label :'生年月日' %><br>
-  <%= raw sprintf(
-      f.date_select(
-        :f_birthday,
-        use_month_numbers: true,
-        start_year: (Time.now.year - 100),
-        end_year: (Time.now.year - 10),
-        default: Date.new((Time.now.year - 30), 1, 1),
-        date_separator: '%s'),
-      '年 ', '月',) + '日'
-  %><br>
-  <!--メールアドレス-->
-  <%= f.label :'メールアドレス' %><br>
-  <%= f.email_field :f_mail %><br>
-  <!--国-->
-  <%= f.label :'出身国' %><br>
-  <%# f.collection_select  :f_country_id, TCountry.all, :id, :name %>
-  <%= f.number_field :f_country_id %><br>
-  <!--言語-->
-  <%= f.label :'言語' %><br>
-  <%# f.collection_select  :f_language_id, TLanguage.all, :id, :name %>
-  <%= f.number_field :f_language_id %><br>
-  <!--ログイン種別-->
-  <%= f.label :'ログイン種別' %><br>
-  <%= f.select :f_login_flg, [["種別1", 0], ["種別2", 1], ["種別3", 2]], class: 'form-control' %><br>
-  <!--性別-->
-  <%= f.label :'性別' %><br>
-  <%= f.select :f_sex, [["男", "男"], ["女", "女"]], class: 'form-control' %><br>
-  <!--公認フラグ-->
-  <%= f.label :'公認フラグ' %><br>
-  <%= f.select :f_auth_flg, [["非公認", 0],["公認", 1]], class: 'form-control' %><br>
-  <!--一言コメント-->
-  <%= f.label :'一言コメント' %><br>
-  <%= f.text_area :f_comment %><br>
 
-  <%= f.submit %><br>
+<%= render 't_user_form' %>
 
-<% end %>
+
+<p><%= link_to 'ユーザー覧へ', t_users_path %></p>

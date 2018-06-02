@@ -12,14 +12,15 @@
       <th>メールアドレス</th>
       <th>国</th>
       <th>言語</th>
+      <th>ログイン種別</th>
       <th>性別</th>
       <th>自治体公認</th>
       <th>一言コメント</th>
       <th>登録日</th>
       <th>更新日</th>
-      <th>修正</th>
+      <th>詳細</th>
     </tr>
-    <%= @users.each do |user|%>
+    <% @users.each do |user|%>
       <tr>
         <!--No-->
         <td><%= user.f_user_id %></td>
@@ -45,6 +46,7 @@
         <td><%= user.f_reg_date %></td>
         <!--更新日時-->
         <td><%= user.f_upd_date %></td>
+        <td><%= link_to '詳細', t_user_path(user.f_user_id) %></td>
       </tr>
     <% end %>
   </table>
