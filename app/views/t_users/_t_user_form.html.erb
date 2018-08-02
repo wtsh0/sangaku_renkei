@@ -1,12 +1,12 @@
-<p>Find me in app/views/t_users/_t_user_form.html.erb</p>
+<p class="notification">Find me in app/views/t_users/_t_user_form.html.erb</p>
 
 <%= form_for(@user) do |f| %>
   <!--名-->
   <%= f.label :'名前(lastname)' %><br>
-  <%= f.text_field :f_lastname %><br>
+  <%= f.text_field :f_lastname, class: "base-input" %><br>
   <!--姓-->
   <%= f.label :'苗字(firstname)' %><br>
-  <%= f.text_field :f_firstname %><br>
+  <%= f.text_field :f_firstname, class: "base-input" %><br>
   <!--生年月日-->
   <%= f.label :'生年月日' %><br>
   <%= raw sprintf(
@@ -21,15 +21,15 @@
   %><br>
   <!--メールアドレス-->
   <%= f.label :'メールアドレス' %><br>
-  <%= f.email_field :f_mail %><br>
+  <%= f.email_field :f_mail, class: "base-input" %><br>
   <!--国-->
   <%= f.label :'出身国' %><br>
   <%# f.collection_select  :f_country_id, TCountry.all, :id, :name %>
-  <%= f.number_field :f_country_id %><br>
+  <%= f.number_field :f_country_id, class: "base-input" %><br>
   <!--言語-->
   <%= f.label :'言語' %><br>
   <%# f.collection_select  :f_language_id, TLanguage.all, :id, :name %>
-  <%= f.number_field :f_language_id %><br>
+  <%= f.number_field :f_language_id, class: "base-input" %><br>
   <!--ログイン種別-->
   <%= f.label :'ログイン種別' %><br>
   <%= f.select :f_login_flg, [["種別1", 0], ["種別2", 1], ["種別3", 2]], class: 'form-control' %><br>

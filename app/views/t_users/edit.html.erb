@@ -1,6 +1,11 @@
-<h1>TUsers#edit</h1>
+<header class="c-header">
+  <h1 class="c-header__title">TUsers#edit</h1>
+  <%= link_to 'ユーザー覧へ', t_users_path, class: "c-header__link" %>
+  <%= link_to  "ユーザーの新規登録", new_t_user_path, class: "link-button" %>
+</header>
+<main class="c-main">
 <p>Find me in app/views/t_users/edit.html.erb</p>
 
 <%= render 't_user_form' %>
 
-<p><%= link_to 'ユーザー覧へ', t_users_path %></p>
+</main>
