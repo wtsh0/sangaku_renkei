@@ -1,3 +1,102 @@
 // Place all the styles related to the t_users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #455d7a;
+  // 1rem = 10px
+  font-size: 62.5%;
+  color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.c-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #233142;
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
+  padding: 0 20px;
+  width: 100%;
+  height: 70px;
+
+  &__title {
+    margin-right: auto;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  &__link {
+    margin-right: 20px;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+}
+
+.c-main {
+  padding: 20px;
+
+  &__title {
+    font-weight: bold;
+    font-size: 3rem;
+  }
+}
+
+table {
+  border-collapse: collapse;
+
+  tr {
+    &:first-child {
+      border-bottom: solid 2px #ffffff;
+    }
+  }
+
+  th, td {
+    padding: 10px;
+    font-size: 1.3rem;
+  }
+}
+
+.link-button {
+  display: inline-block;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.base-input {
+  padding: 0 10px;
+  width: 400px;
+  height: 50px;
+  font-size: 2rem;
+}
+
+.notification {
+  background-color: #333;
+  border: solid 1px #808080;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: 100%;
+  line-height: 30px;
+  color: #ffb400;
+}

@@ -1,7 +1,12 @@
-<h1>TUsers#index</h1>
-<p>Find me in app/views/t_users/index.html.erb</p>
+<header class="c-header">
+  <h1 class="c-header__title">TUsers#index</h1>
+  <%= link_to 'ユーザー覧へ', t_users_path, class: "c-header__link" %>
+  <%= link_to  "ユーザーの新規登録", new_t_user_path, class: "link-button" %>
+</header>
+<main class="c-main">
+<p class="notification">Find me in app/views/t_users/index.html.erb</p>
 
-<p>ユーザー一覧</p>
+<p class="c-main__title">ユーザー一覧</p>
 <% unless @users.blank? %>
   <!--ユーザーが存在する場合-->
   <table>
@@ -46,7 +51,7 @@
         <td><%= user.f_reg_date %></td>
         <!--更新日時-->
         <td><%= user.f_upd_date %></td>
-        <td><%= link_to '詳細', t_user_path(user.f_user_id) %></td>
+        <td><%= link_to '詳細', t_user_path(user.f_user_id), class: "link-button" %></td>
       </tr>
     <% end %>
   </table>
@@ -54,5 +59,4 @@
   <!--ユーザーが存在しない場合-->
   <p>まだユーザーは存在しません</p>
 <% end %>
-
-<%= link_to  "ユーザーの新規登録", new_t_user_path %>
+</main>

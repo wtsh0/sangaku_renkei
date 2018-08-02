@@ -1,5 +1,10 @@
-<h1>TUsers#show</h1>
-<p>Find me in app/views/t_users/show.html.erb</p>
+<header class="c-header">
+  <h1 class="c-header__title">TUsers#show</h1>
+  <%= link_to 'ユーザー覧へ', t_users_path, class: "c-header__link" %>
+  <%= link_to  "ユーザーの新規登録", new_t_user_path, class: "link-button" %>
+</header>
+<main class="c-main">
+<p class="notification">Find me in app/views/t_users/show.html.erb</p>
   <!--名-->
   <label>名前(lastname)</label><br>
   <%= @user.f_lastname %><br>
@@ -47,7 +52,7 @@
     <p>まだ発行されていません</p>
   <% end %>
 
-  <p><%= link_to '情報の修正', edit_t_user_path(@user.id) %></p>
+  <p><%= link_to '情報の修正', edit_t_user_path(@user.id), class: 'link-button' %></p>
 
 <% @uuid = SecureRandom.uuid %>
 <% @now = Time.current %>
@@ -63,6 +68,7 @@
   <%= hidden_field_tag :f_inval_date, @now.since(7.days) %>
   <%= submit_tag 'QRコードを発行' %>
 <% end %>
+</main>
 
 
 
